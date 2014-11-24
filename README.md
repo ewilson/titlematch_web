@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ewilson/titlematch_web.svg?branch=travis)](https://travis-ci.org/ewilson/titlematch_web)
+
 # Titlematch-web
 
 This README outlines the details of collaborating on this Ember application.

@@ -1,16 +1,26 @@
----
 language: node_js
-
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+
+after_success:
+- ember build --environment=production
+
+deploy:
+  provider: s3
+  access_key_id: AKIAIKJ2Q7WB2FD327YA
+  secret_access_key:
+    secure: t+r4Y6dPbqJz/MhJzSXhchy0JBMeS1bOj1FZFq8Kr4fBt3P/J6PVYeWPgBnBIwEOs7BSDfpb0pvacMnjKH94KE4KSAdVdA5pC13VbnW/An1ad8ym1JSFFf8WDD2YYNGCZ3mAx9dqJGi1n8+RX7f2SFYNWssSM7R3JoAIb1292T0=
+  bucket: titlematch
+  skip_cleanup: true
+  acl: public_read
+  local-dir: dist
+  endpoint: titlematch.s3-website-us-east-1.amazonaws.com
+  region: us-east-1
