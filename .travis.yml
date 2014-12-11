@@ -11,7 +11,7 @@ script:
 - npm test
 
 after_success:
-- ember build
+- ember build --environment=production
 
 deploy:
   provider: s3
