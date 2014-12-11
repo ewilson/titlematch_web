@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                <img alt="Brand" src="/assets/img/logo.ico">
+                <img alt="Brand" src="/assets/img/trophy.ico">
             </a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="icon-bar"></span>
@@ -12,8 +12,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#about">Tournaments</a></li>
-                <li><a href="#contact">Players</a></li>
+                {{#link-to "tournaments" tagName="li"}}
+                    <a {{bind-attr href="view.href"}}>Tournaments</a>
+                {{/link-to}}
+                {{#link-to "players" tagName="li"}}
+                    <a {{bind-attr href="view.href"}}>Players</a>
+                {{/link-to}}
             </ul>
         </div>
     </div>
