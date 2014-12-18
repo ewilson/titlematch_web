@@ -6,7 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-	this.resource('players', { path: '/'});
+    this.route('tournaments', function() {
+        this.route('new');
+        this.route('setup', { path: '/setup/:tournament_id' });
+        this.route('play', { path: '/play/:tournament_id' });
+        this.route('complete', { path: '/complete/:tournament_id' });
+    });
+	this.route('players', { path: '/players'});
 });
 
 Router.reopen({ location: "auto" });

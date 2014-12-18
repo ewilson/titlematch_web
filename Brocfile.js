@@ -6,7 +6,18 @@ var app = new EmberApp();
 
 app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
 app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
+    destDir: 'fonts'
+});
 
+app.import({
+    development: 'vendor/ember-data/ember-data.js',
+    production:  'vendor/ember-data/ember-data.prod.js'
+}, {
+    'ember-data': [
+        'default'
+    ]
+});
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
