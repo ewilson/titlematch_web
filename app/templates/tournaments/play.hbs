@@ -1,6 +1,18 @@
-<h3>{{name}}</h3>
-<h4>Play!</h4>
-<p>{{state}}</p>
-<p>{{eventDate}}</p>
-<button {{action "unstart"}} class="btn btn-primary">Change setup</button>
-<button {{action "finish"}} class="btn btn-primary">Finish</button>
+<div class="container page-header">
+    <h1>{{title}}</h1>
+    <nav>
+        <ul class="nav nav-tabs">
+          {{#link-to "tournaments.play.matches" tagName="li" role="presentation"}}
+              <a href="#" {{bind-attr href="view.href"}}>Matches</a>
+          {{/link-to}}
+          {{#link-to "tournaments.play.standings" tagName="li" role="presentation"}}
+              <a href="#" {{bind-attr href="view.href"}}>Standings</a>
+          {{/link-to}}
+        </ul>
+    </nav>
+</div>
+{{outlet}}
+<div class="container">
+    <button {{action "unstart"}} class="btn btn-primary">Change setup</button>
+    <button {{action "finish"}} class="btn btn-primary">Finish</button>
+</div>

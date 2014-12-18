@@ -7,7 +7,7 @@ export default Ember.ObjectController.extend({
       var model = this.get('model');
       model.set('state', 1);
       model.save().then(function (tournament) {
-        that.transitionToRoute('tournaments.play', tournament);
+        that.transitionToRoute('tournaments.play.matches', tournament);
       });
     }
   }
