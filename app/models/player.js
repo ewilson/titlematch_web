@@ -8,43 +8,35 @@ Player.reopenClass({
   FIXTURES: [
     {
       id: 1,
-      name: 'Joe',
-      tournaments: []
+      name: 'Joe'
     },
     {
       id: 2,
-      name: 'Jack',
-      tournaments: []
+      name: 'Jack'
     },
     {
       id: 3,
-      name: 'Jerry',
-      tournaments: []
+      name: 'Jerry'
     },
     {
       id: 4,
-      name: 'John',
-      tournaments: []
+      name: 'John'
     },
     {
       id: 5,
-      name: 'Jason',
-      tournaments: []
+      name: 'Jason'
     },
     {
       id: 6,
-      name: 'Jeff',
-      tournaments: []
+      name: 'Jeff'
     },
     {
       id: 7,
-      name: 'Jake',
-      tournaments: []
+      name: 'Jake'
     },
     {
       id: 8,
-      name: 'Joe',
-      tournaments: []
+      name: 'Joe'
     }
   ]
 });
