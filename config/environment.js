@@ -12,7 +12,15 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self'",
+      'font-src': "'self'",
+      'connect-src': "http://localhost:8000",
+      'img-src': "'self'",
+      'style-src': "'self'",
+      'media-src': "'self'"
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -20,7 +28,9 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
+    ENV.APP.API_HOST = 'http://localhost:8000';
+    ENV.APP.API_NAMESPACE = '';
+    ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
@@ -40,7 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.API_HOST = 'http://ec2-54-88-185-174.compute-1.amazonaws.com:8000/';
   }
 
   return ENV;
