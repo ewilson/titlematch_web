@@ -50,7 +50,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST = 'http://ec2-54-88-185-174.compute-1.amazonaws.com:8000/';
+    ENV.APP.API_HOST = 'http://http://ec2-54-88-185-174.compute-1.amazonaws.com:8000';
+    ENV.APP.API_NAMESPACE = '';
   }
 
   return ENV;
