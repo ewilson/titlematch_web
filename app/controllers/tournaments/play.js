@@ -2,19 +2,18 @@ import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
   actions: {
-    unstart: function() {
+    unstart: function(tournament) {
       var that = this;
-      var model = this.get('model');
-      model.set('state',0);
-      model.save().then(function(tournament) {
-        that.transitionToRoute('tournaments.setup', tournament);
+      tournament.set('state',0);
+      tournament.save().then(function(tournament) {
+        var players = that.store.find('player');
+        that.transitionTo('tournaments.setup', {id: tournament.id, tournament: tournament, players: players});
       });
     },
-    finish: function() {
+    finish: function(tournament) {
       var that = this;
-      var model = this.get('model');
-      model.set('state',2);
-      model.save().then(function(tournament) {
+      tournament.set('state',2);
+      tournament.save().then(function(tournament) {
         that.transitionToRoute('tournaments.complete', tournament);
       });
     }
