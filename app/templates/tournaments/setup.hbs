@@ -1,7 +1,36 @@
-<div class="container page-header">
-    <h1>{{title}}</h1>
+<div class="page-header">
+    <h1>{{tournament.title}} <small>Select players</small></h1>
 </div>
-<h4>Setup!</h4>
-<p>{{state}}</p>
-<p>{{eventDate}}</p>
-<button {{action "start"}} class="btn btn-primary">Start</button>
+
+<form>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Added players</h3>
+                </div>
+                <div class="panel-body added-players list-group">
+                    {{#each player in tournament.players}}
+                        <a class="list-group-item" href="#" {{action 'removePlayer' tournament player}}>
+                          {{player.name}}
+                        </a>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <p>
+                <button {{action "start" tournament}} class="btn btn-primary">
+                    Begin Tournament
+                </button>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <ol>
+          {{#each player in players}}
+              <li {{action "addPlayer" tournament player}}>{{player.name}}</li>
+          {{/each}}
+        </ol>
+    </div>
+</form>

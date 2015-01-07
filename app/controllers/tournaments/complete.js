@@ -2,11 +2,10 @@ import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
   actions: {
-    reopen: function() {
+    reopen: function(tournament) {
       var that = this;
-      var model = this.get('model');
-      model.set('state', 1);
-      model.save().then(function (tournament) {
+      tournament.set('state', 1);
+      tournament.save().then(function (tournament) {
         that.transitionToRoute('tournaments.play.matches', tournament);
       });
     }
