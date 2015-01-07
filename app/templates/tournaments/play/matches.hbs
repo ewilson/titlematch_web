@@ -1,74 +1,54 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-4 col-xs-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading"></div>
-                <div class="panel-body">
-                    <table class="table">
-                        <tr class="info">
-                            <td class="col-sm-10">Wyatt</td>
-                            <td class="col-sm-2">21</td>
-                        </tr>
-                        <tr>
-                            <td class="col-sm-10">Eric</td>
-                            <td class="col-sm-2">19</td>
-                        </tr>
-                    </table>
+        {{#each match in this.completedMatches}}
+            <div class="col-sm-4 col-xs-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr {{bind-attr class="match.homeWinner:info"}}>
+                                <td class="col-sm-10">{{match.homePlayer.name}}</td>
+                                <td class="col-sm-2">{{match.homeScore}}</td>
+                            </tr>
+                            <tr {{bind-attr class="match.awayWinner:info"}}>
+                                <td class="col-sm-10">{{match.awayPlayer.name}}</td>
+                                <td class="col-sm-2">{{match.awayScore}}</td>
+                            </tr>
+                        </table>
+                        <a href="#" {{action 'undoMatch' match}}>
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4 col-xs-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading"></div>
-                <div class="panel-body">
-                    <table class="table">
-                        <tr class="info">
-                            <td class="col-sm-10">Wyatt</td>
-                            <td class="col-sm-2">21</td>
-                        </tr>
-                        <tr>
-                            <td class="col-sm-10">Eric</td>
-                            <td class="col-sm-2">19</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-xs-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading"></div>
-                <div class="panel-body">
-                    <table class="table">
-                        <tr class="info">
-                            <td class="col-sm-10">Wyatt</td>
-                            <td class="col-sm-2">21</td>
-                        </tr>
-                        <tr>
-                            <td class="col-sm-10">James</td>
-                            <td class="col-sm-2">23</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+        {{/each}}
     </div>
     <div class="row">
-        <div class="col-sm-4 col-xs-6">
-            <div class="panel panel-info">
-                <div class="panel-heading"></div>
-                <div class="panel-body">
-                    <table class="table">
-                        <tr>
-                            <td class="col-sm-10">Justin</td>
-                            <td class="col-sm-2"><input type="text" class="form-control" id="score1" placeholder="0"></td>
-                        </tr>
-                        <tr>
-                            <td class="col-sm-10">Wesley</td>
-                            <td class="col-sm-2"><input type="text" class="form-control" id="score2" placeholder="0"></td>
-                        </tr>
-                    </table>
+        {{#each match in this.scheduledMatches}}
+            <div class="col-sm-4 col-xs-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <td class="col-sm-10">{{match.homePlayer.name}}</td>
+                                <td class="col-sm-2">
+                                    {{input valueBinding="match.homeScore" type="text" class="form-control"}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-10">{{match.awayPlayer.name}}</td>
+                                <td class="col-sm-2">
+                                    {{input valueBinding="match.awayScore" type="text" class="form-control"}}
+                                </td>
+                            </tr>
+                        </table>
+                        <a href="#" {{action 'completeMatch' match}}>
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        {{/each}}
     </div>
 </div>
