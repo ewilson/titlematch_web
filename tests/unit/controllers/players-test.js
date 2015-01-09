@@ -3,9 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('controller:tournaments/setup', 'TournamentsSetupController', {
+moduleFor('controller:players', 'PlayersController', {
   // Specify the other units that are required for this test.
-  needs: ['controller:players']
+  // needs: ['controller:foo']
 });
 
 // Replace this with your real tests.

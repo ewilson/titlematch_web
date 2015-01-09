@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1>{{tournament.title}} <small>Select players</small></h1>
+    <h1>{{title}} <small>Select players</small></h1>
 </div>
 
 <form>
@@ -10,8 +10,8 @@
                     <h3 class="panel-title">Added players</h3>
                 </div>
                 <div class="panel-body added-players list-group">
-                    {{#each player in tournament.players}}
-                        <a class="list-group-item" href="#" {{action 'removePlayer' tournament player}}>
+                    {{#each player in players}}
+                        <a class="list-group-item" href="#" {{action 'removePlayer' this player}}>
                           {{player.name}}
                         </a>
                     {{/each}}
@@ -20,7 +20,7 @@
         </div>
         <div class="col-xs-6">
             <p>
-                <button {{action "start" tournament}} class="btn btn-primary">
+                <button {{action "start" this}} class="btn btn-primary">
                     Begin Tournament
                 </button>
             </p>
@@ -28,8 +28,8 @@
     </div>
     <div class="row">
         <ol>
-          {{#each player in players}}
-              <li {{action "addPlayer" tournament player}}>{{player.name}}</li>
+          {{#each player in controllers.players.model}}
+              <li {{action "addPlayer" this player}}>{{player.name}}</li>
           {{/each}}
         </ol>
     </div>

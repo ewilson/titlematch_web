@@ -6,8 +6,7 @@ export default Ember.ObjectController.extend({
       var that = this;
       tournament.set('state',0);
       tournament.save().then(function(tournament) {
-        var players = that.store.find('player');
-        that.transitionTo('tournaments.setup', {id: tournament.id, tournament: tournament, players: players});
+        that.transitionTo('tournaments.setup', tournament);
       });
     },
     finish: function(tournament) {

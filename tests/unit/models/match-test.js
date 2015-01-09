@@ -3,9 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('tournament', 'Tournament', {
+moduleForModel('match', 'Match', {
   // Specify the other units that are required for this test.
-  needs: ['model:player', 'model:match']
+  needs: ['model:tournament', 'model:player']
 });
 
 test('it exists', function() {
