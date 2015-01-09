@@ -9,6 +9,8 @@ export default Ember.Route.extend({
     },
     undoMatch: function(match) {
       match.set('completed', false);
+      match.set('homeScore', 0);
+      match.set('awayScore', 0);
       match.save();
       return false;
     }
