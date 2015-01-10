@@ -1,5 +1,7 @@
 import DS from 'ember-data';
 
+import buildStandings from 'titlematch-web/utils/build-standings';
+
 export default DS.Model.extend({
   title: DS.attr('string'),
   players: DS.hasMany('player', {async: true}),
@@ -14,6 +16,11 @@ export default DS.Model.extend({
   }.property('matches.@each.completed'),
   scheduledMatches: function() {
     return this.get('matches').filterBy('completed', false);
-  }.property('matches.@each.completed')
+  }.property('matches.@each.completed'),
+  standings: function() {
+    var players = this.get('players');
+    var matches = this.get('completedMatches');
+    return buildStandings(players, matches);
+  }.property('players', 'completedMatches')
 });
 
