@@ -5,6 +5,10 @@ export default Ember.ObjectController.extend({
     unstart: function(tournament) {
       var that = this;
       tournament.set('state',0);
+      var matches = tournament.get('matches').toArray();
+      for (var i = 0; i < matches.length; i++) {
+        matches[i].destroyRecord();
+      }
       tournament.save().then(function(tournament) {
         that.transitionTo('tournaments.setup', tournament);
       });
