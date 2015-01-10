@@ -1,18 +1,18 @@
 <div class="container">
     <div class="row">
         {{#each match in this.completedMatches}}
-            <div class="col-sm-4 col-xs-6">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading"></div>
                     <div class="panel-body">
                         <table class="table">
                             <tr {{bind-attr class="match.homeWinner:info"}}>
-                                <td class="col-sm-10">{{match.homePlayer.name}}</td>
-                                <td class="col-sm-2">{{match.homeScore}}</td>
+                                <td class="col-xs-9">{{match.homePlayer.name}}</td>
+                                <td class="col-xs-3">{{match.homeScore}}</td>
                             </tr>
                             <tr {{bind-attr class="match.awayWinner:info"}}>
-                                <td class="col-sm-10">{{match.awayPlayer.name}}</td>
-                                <td class="col-sm-2">{{match.awayScore}}</td>
+                                <td class="col-xs-9">{{match.awayPlayer.name}}</td>
+                                <td class="col-xs-3">{{match.awayScore}}</td>
                             </tr>
                         </table>
                         <a href="#" {{action 'undoMatch' match}}>
@@ -25,21 +25,21 @@
     </div>
     <div class="row">
         {{#each match in this.scheduledMatches}}
-            <div class="col-sm-4 col-xs-6">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-info">
                     <div class="panel-heading"></div>
                     <div class="panel-body">
                         <table class="table">
                             <tr>
-                                <td class="col-sm-10">{{match.homePlayer.name}}</td>
-                                <td class="col-sm-2">
-                                    {{input valueBinding="match.homeScore" type="text" class="form-control"}}
+                                <td class="col-xs-8">{{match.homePlayer.name}}</td>
+                                <td class="col-xs-4">
+                                    {{input valueBinding="match.homeScore" type="number" class="form-control"}}
                                 </td>
                             </tr>
                             <tr>
-                                <td class="col-sm-10">{{match.awayPlayer.name}}</td>
-                                <td class="col-sm-2">
-                                    {{input valueBinding="match.awayScore" type="text" class="form-control"}}
+                                <td class="col-xs-8">{{match.awayPlayer.name}}</td>
+                                <td class="col-xs-4">
+                                    {{input valueBinding="match.awayScore" type="number" class="form-control"}}
                                 </td>
                             </tr>
                         </table>
