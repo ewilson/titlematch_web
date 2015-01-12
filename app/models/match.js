@@ -17,6 +17,6 @@ export default DS.Model.extend({
     var homeScore = this.get('homeScore');
     var awayScore = this.get('awayScore');
     return homeScore < awayScore;
-  }.property('homeScore', 'awayScore'),
+  }.property('homeScore', 'awayScore')
 
 });

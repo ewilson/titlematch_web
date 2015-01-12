@@ -29,7 +29,7 @@
     <div class="row">
         <ol>
           {{#each player in controllers.players.model}}
-              <li {{action "addPlayer" this player}}>{{player.name}}</li>
+              <li><a href="#" {{action "addPlayer" this player}}>{{player.name}}</a></li>
           {{/each}}
         </ol>
     </div>

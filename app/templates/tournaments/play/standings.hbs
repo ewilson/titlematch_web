@@ -5,68 +5,30 @@
                 <div class="panel-heading"></div>
                 <table class="table table-bordered table-hover">
                     <thead>
-                    <tr>
-                        <th>Team</th>
-                        <th>W</th>
-                        <th>L</th>
-                        <th>T</th>
-                        <th>%</th>
-                        <th>PF</th>
-                        <th>PA</th>
-                        <th>+/-</th>
-                    </tr>
+                        <tr>
+                            <th class="col-xs-4"></th>
+                            <th class="col-xs-1">W</th>
+                            <th class="col-xs-1">L</th>
+                            <th class="col-xs-1">T</th>
+                            <th class="col-xs-2">%</th>
+                            <th class="col-xs-1">PF</th>
+                            <th class="col-xs-1">PA</th>
+                            <th class="col-xs-1">+/-</th>
+                        </tr>
                     </thead>
                     <tbody id="standings">
-                    <tr>
-                        <td class="name">Justin</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>80.2</td>
-                        <td>52</td>
-                        <td>11</td>
-                        <td>41</td>
-                    </tr>
-                    <tr>
-                        <td class="name">Justin</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>80.2</td>
-                        <td>52</td>
-                        <td>11</td>
-                        <td>41</td>
-                    </tr>
-                    <tr>
-                        <td class="name">Justin</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>80.2</td>
-                        <td>52</td>
-                        <td>11</td>
-                        <td>41</td>
-                    </tr>
-                    <tr>
-                        <td class="name">Justin</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>80.2</td>
-                        <td>52</td>
-                        <td>11</td>
-                        <td>41</td>
-                    </tr>
-                    <tr>
-                        <td class="name">Justin</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>80.2</td>
-                        <td>52</td>
-                        <td>11</td>
-                        <td>41</td>
-                    </tr>
+                        {{#each row in this.standings}}
+                            <tr>
+                                <td>{{row.name}}</td>
+                                <td>{{row.wins}}</td>
+                                <td>{{row.losses}}</td>
+                                <td>{{row.ties}}</td>
+                                <td>{{row.perc}}</td>
+                                <td>{{row.pf}}</td>
+                                <td>{{row.pa}}</td>
+                                <td>{{row.pm}}</td>
+                            </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>
