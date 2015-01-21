@@ -1,20 +1,36 @@
 <div class="container">
-    <h1>Tournaments</h1>
+    <h1>Active Tournaments</h1>
     {{#link-to 'tournaments.new' type="button" class="btn btn-primary"}}Add a tournament{{/link-to}}
     <div>&nbsp;</div>
     <div class="row">
         <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading"></div>
-                <div class="panel-body list-group">
-                    {{#each tournament in model}}
+            {{#if model.newTournaments}}
+                <div class="panel panel-default">
+                    <div class="panel-heading">New Tournaments</div>
+                    <div class="panel-body list-group">
+                        {{#each tournament in model.newTournaments}}
+                            {{#link-to 'tournaments.play' tournament class="list-group-item"}}
+                                <span><strong>{{tournament.title}}</strong> <em>{{tournament.eventDate}}</em></span>
+                                <span {{action 'remove' tournament}} class="glyphicon glyphicon-trash pull-right"></span>
+                            {{/link-to}}
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if model.activeTournaments}}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Active Tournaments</div>
+                    <div class="panel-body list-group">
+                      {{#each tournament in model.activeTournaments}}
                         {{#link-to 'tournaments.play' tournament class="list-group-item"}}
                             <span><strong>{{tournament.title}}</strong> <em>{{tournament.eventDate}}</em></span>
                             <span {{action 'remove' tournament}} class="glyphicon glyphicon-trash pull-right"></span>
                         {{/link-to}}
-                    {{/each}}
+                      {{/each}}
+                    </div>
                 </div>
-            </div>
+            {{/if}}
+            {{#link-to 'tournaments.archive'}}Archived tournaments{{/link-to}}
         </div>
     </div>
 </div>

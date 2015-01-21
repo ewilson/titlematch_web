@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function() {
-        return this.store.find('tournament');
+        var newTournaments  = this.store.find('tournament', {state: 0});
+        var activeTournaments  = this.store.find('tournament', {state: 1});
+        return {newTournaments: newTournaments, activeTournaments: activeTournaments};
     }
 });
