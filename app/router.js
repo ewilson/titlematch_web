@@ -14,6 +14,7 @@ Router.map(function () {
       this.route('standings');
     });
     this.route('complete', {path: '/complete/:tournament_id'});
+    this.route("archive");
   });
   this.route('players', function(){
     this.route('new');
