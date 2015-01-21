@@ -14,13 +14,24 @@ export default DS.Model.extend({
   completedMatches: function() {
     return this.get('matches').filterBy('completed', true);
   }.property('matches.@each.completed'),
+
   scheduledMatches: function() {
     return this.get('matches').filterBy('completed', false);
   }.property('matches.@each.completed'),
+
   standings: function() {
     var players = this.get('players');
     var matches = this.get('completedMatches');
     return buildStandings(players, matches);
-  }.property('players', 'completedMatches')
+  }.property('players', 'completedMatches'),
+
+  done: function() {
+    return this.get('scheduledMatches.length') === 0;
+  }.property('scheduledMatches'),
+
+  notStarted: function() {
+    return this.get('completedMatches.length') === 0;
+  }.property('completedMatches')
+
 });
 

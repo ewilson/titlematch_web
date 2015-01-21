@@ -8,11 +8,17 @@
           {{#link-to "tournaments.play.standings" tagName="li" role="presentation"}}
               <a href={{view.href}}>Standings</a>
           {{/link-to}}
+              <a href=""><span {{action 'openModal' 'tournaments/play/settings'}} class="glyphicon glyphicon-cog pull-right"/></a>
         </ul>
     </nav>
+  {{outlet 'settings'}}
 </div>
 {{outlet}}
 <div class="container">
-    <button {{action "unstart" this}} class="btn btn-primary">Change setup</button>
-    <button {{action "finish" this}} class="btn btn-primary">Finish</button>
+    {{#if model.notStarted}}
+        <button {{action "unstart" this}} class="btn btn-primary">Change setup</button>
+    {{/if}}
+    {{#if model.done}}
+        <button {{action "finish" this}} class="btn btn-primary">Finish</button>
+    {{/if}}
 </div>

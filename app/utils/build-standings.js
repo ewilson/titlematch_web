@@ -53,13 +53,17 @@ Standings.prototype = {
       var row = this.standings[o];
       row.perc = (row.wins + row.ties/2) / (row.wins + row.losses + row.ties);
       row.perc = isNaN(row.perc) ? '-' : row.perc.toFixed(3);
+      row.sortPerc = row.perc === '-' ? 0.499 : row.perc;
       displayStandings.push(row);
     }
     displayStandings.sort(function(x,y) {
-      if (x.perc === y.perc) {
-        return x.pm < y.pm;
+      if (x.sortPerc > y.sortPerc) {
+        return -1;
+      } else if (x.sortPerc < y.sortPerc) {
+        return 1;
+      } else {
+        return x.pm > y.pm ? -1 : x.pm < y.pm ? 1 : 0;
       }
-      return x.perc < y.perc;
     });
     return displayStandings;
   }
