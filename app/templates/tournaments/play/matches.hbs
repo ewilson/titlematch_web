@@ -6,14 +6,16 @@
                     <div class="panel-heading"></div>
                     <div class="panel-body">
                         <table class="table">
-                            <tr {{bind-attr class="match.homeWinner:info"}}>
-                                <td class="col-xs-9">{{match.homePlayer.name}}</td>
-                                <td class="col-xs-3">{{match.homeScore}}</td>
-                            </tr>
-                            <tr {{bind-attr class="match.awayWinner:info"}}>
-                                <td class="col-xs-9">{{match.awayPlayer.name}}</td>
-                                <td class="col-xs-3">{{match.awayScore}}</td>
-                            </tr>
+                            <tbody>
+                                <tr {{bind-attr class="match.homeWinner:info"}}>
+                                    <td class="col-xs-9">{{match.homePlayer.name}}</td>
+                                    <td class="col-xs-3">{{match.homeScore}}</td>
+                                </tr>
+                                <tr {{bind-attr class="match.awayWinner:info"}}>
+                                    <td class="col-xs-9">{{match.awayPlayer.name}}</td>
+                                    <td class="col-xs-3">{{match.awayScore}}</td>
+                                </tr>
+                            </tbody>
                         </table>
                         <a href="#" {{action 'undoMatch' match}}>
                             <span class="glyphicon glyphicon-remove"></span>
