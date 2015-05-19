@@ -28,12 +28,13 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.APP.API_NAMESPACE = '';
+    ENV.APP.API_HOST = 'http://localhost:8000';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicy['connect-src'] = "http://localhost:8000";
+    ENV.contentSecurityPolicy['connect-src'] = "http://localhost:8000 http://localhost:4200";
   }
 
   if (environment === 'test') {

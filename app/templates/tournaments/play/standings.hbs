@@ -17,7 +17,7 @@
                         </tr>
                     </thead>
                     <tbody id="standings">
-                        {{#each row in this.standings}}
+                        {{#each model.standings as |row|}}
                             <tr>
                                 <td>{{row.name}}</td>
                                 <td>{{row.wins}}</td>

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 import roundRobin from 'titlematch-web/utils/round-robin';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   actions: {
     start: function (tournament) {
       var that = this;

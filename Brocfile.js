@@ -2,12 +2,13 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp({
-  vendorFiles: {
-    'handlebars.js': null
-  }
-});
+var app = new EmberApp();
 
+   destDir: 'fonts'
+// Use `app.import` to add additional libraries to the generated
+// output files.
+//
+// If you need to use different assets in different
 app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
 app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
