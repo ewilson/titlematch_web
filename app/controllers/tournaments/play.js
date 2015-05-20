@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   actions: {
     unstart: function(tournament) {
       var that = this;
@@ -10,7 +10,7 @@ export default Ember.ObjectController.extend({
         matches[i].destroyRecord();
       }
       tournament.save().then(function(tournament) {
-        that.transitionTo('tournaments.setup', tournament);
+        that.transitionToRoute('tournaments.setup', tournament);
       });
     },
     finish: function(tournament) {

@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">New Tournaments</div>
                     <div class="panel-body list-group">
-                        {{#each tournament in model.newTournaments}}
+                        {{#each model.newTournaments as |tournament|}}
                             {{#link-to 'tournaments.play' tournament class="list-group-item"}}
                                 <span><strong>{{tournament.title}}</strong> <em>{{tournament.eventDate}}</em></span>
                                 <span {{action 'remove' tournament}} class="glyphicon glyphicon-trash pull-right"></span>
@@ -21,7 +21,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Active Tournaments</div>
                     <div class="panel-body list-group">
-                      {{#each tournament in model.activeTournaments}}
+                      {{#each model.activeTournaments as |tournament|}}
                         {{#link-to 'tournaments.play' tournament class="list-group-item"}}
                             <span><strong>{{tournament.title}}</strong> <em>{{tournament.eventDate}}</em></span>
                             <span {{action 'remove' tournament}} class="glyphicon glyphicon-trash pull-right"></span>

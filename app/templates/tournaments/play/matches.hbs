@@ -1,17 +1,17 @@
 <div class="container">
     <div class="row">
-        {{#each match in this.completedMatches}}
+        {{#each model.completedMatches as |match| }}
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading"></div>
                     <div class="panel-body">
                         <table class="table">
                             <tbody>
-                                <tr {{bind-attr class="match.homeWinner:info"}}>
+                                <tr class={{if match.homeWinner 'info'}}>
                                     <td class="col-xs-9">{{match.homePlayer.name}}</td>
                                     <td class="col-xs-3">{{match.homeScore}}</td>
                                 </tr>
-                                <tr {{bind-attr class="match.awayWinner:info"}}>
+                                <tr class={{if match.awayWinner 'info'}}>
                                     <td class="col-xs-9">{{match.awayPlayer.name}}</td>
                                     <td class="col-xs-3">{{match.awayScore}}</td>
                                 </tr>
@@ -26,7 +26,7 @@
         {{/each}}
     </div>
     <div class="row">
-        {{#each match in this.scheduledMatches}}
+        {{#each model.scheduledMatches as |match| }}
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-info">
                     <div class="panel-heading"></div>
@@ -35,13 +35,13 @@
                             <tr>
                                 <td class="col-xs-8">{{match.homePlayer.name}}</td>
                                 <td class="col-xs-4">
-                                    {{input valueBinding="match.homeScore" type="number" class="form-control"}}
+                                    {{input value=match.homeScore type="number" class="form-control"}}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-xs-8">{{match.awayPlayer.name}}</td>
                                 <td class="col-xs-4">
-                                    {{input valueBinding="match.awayScore" type="number" class="form-control"}}
+                                    {{input value=match.awayScore type="number" class="form-control"}}
                                 </td>
                             </tr>
                         </table>
