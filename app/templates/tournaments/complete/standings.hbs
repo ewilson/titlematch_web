@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Congrats: {{model.winner.name}}</h1>
+          <p>Winner of the {{model.title}}</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading"></div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th class="col-xs-4"></th>
+                        <th class="col-xs-1">W</th>
+                        <th class="col-xs-1">L</th>
+                        <th class="col-xs-1">T</th>
+                        <th class="col-xs-2">%</th>
+                        <th class="col-xs-1">PF</th>
+                        <th class="col-xs-1">PA</th>
+                        <th class="col-xs-1">+/-</th>
+                    </tr>
+                    </thead>
+                    <tbody id="standings">
+                    {{#each model.standings key="@guid" as |row|}}
+                        <tr>
+                            <td>{{row.name}}</td>
+                            <td>{{row.wins}}</td>
+                            <td>{{row.losses}}</td>
+                            <td>{{row.ties}}</td>
+                            <td>{{row.perc}}</td>
+                            <td>{{row.pf}}</td>
+                            <td>{{row.pa}}</td>
+                            <td>{{row.pm}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

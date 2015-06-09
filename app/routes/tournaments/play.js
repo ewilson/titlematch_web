@@ -22,7 +22,7 @@ export default Ember.Route.extend({
     } else if (state === 1) {
       this.transitionTo('tournaments.play.matches', tournament);
     } else if (state === 2) {
-      this.transitionTo('tournaments.complete', tournament);
+      this.transitionTo('tournaments.complete.standings', tournament);
     }
   }
 

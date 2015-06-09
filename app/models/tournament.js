@@ -25,6 +25,11 @@ export default DS.Model.extend({
     return buildStandings(players, matches);
   }.property('players', 'completedMatches'),
 
+  winner: function() {
+    var standings = this.get('standings');
+    return standings.slice(0,1)[0];
+  }.property('standings'),
+
   done: function() {
     return this.get('scheduledMatches.length') === 0;
   }.property('scheduledMatches'),

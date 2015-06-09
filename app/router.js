@@ -13,11 +13,24 @@ Router.map(function () {
       this.route('matches');
       this.route('standings');
     });
-    this.route('complete', {path: '/complete/:tournament_id'});
+    this.route('complete', {path: '/complete/:tournament_id'}, function() {
+      this.route('standings');
+      this.route('matches');
+    });
     this.route("archive");
+
+    this.route('commplete', function() {
+      this.route('matches');
+    });
   });
   this.route('players', function(){
     this.route('new');
+  });
+
+  this.route('tournament', function() {
+    this.route('commplete', function() {
+      this.route('matches');
+    });
   });
 });
 
