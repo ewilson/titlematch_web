@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('tournament', {state: 2});
+    return this.store.query('tournament', {state: 2});
   }
 });
