@@ -12,11 +12,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                {{#link-to "tournaments" tagName="li"}}
-                    <a href={{view.href}}>Tournaments</a>
+                {{#link-to "tournaments" tagName="li" href="false"}}
+                  {{link-to 'Tournaments' 'tournaments' role='presentation'}}
                 {{/link-to}}
-                {{#link-to "players" tagName="li"}}
-                    <a href={{view.href}}>Players</a>
+                {{#link-to "players" tagName="li" href="false"}}
+                  {{link-to 'Players' 'players' role='presentation'}}
                 {{/link-to}}
             </ul>
         </div>
