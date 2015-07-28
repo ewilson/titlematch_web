@@ -2,11 +2,11 @@
     <h1>{{title}}</h1>
     <nav>
         <ul class="nav nav-tabs">
-          {{#link-to "tournaments.play.matches" tagName="li" role="presentation"}}
-              <a href={{view.href}}>Matches</a>
+          {{#link-to "tournaments.play.matches" tagName="li" href="false"}}
+            {{link-to 'Matches' 'tournaments.play.matches' role='presentation'}}
           {{/link-to}}
-          {{#link-to "tournaments.play.standings" tagName="li" role="presentation"}}
-              <a href={{view.href}}>Standings</a>
+          {{#link-to "tournaments.play.standings" tagName="li" href="false"}}
+            {{link-to 'Standings' 'tournaments.play.standings' role='presentation'}}
           {{/link-to}}
           <a href=""><span {{action 'openModal' 'tournaments/play/settings'}} class="glyphicon glyphicon-cog pull-right"></span></a>
         </ul>
