@@ -11,6 +11,7 @@ function Standings(players) {
   this.standings = {};
   players.forEach(function(player) {
     that.standings[player.get('id')] = {
+      pid: player.get('id'),
       name: player.get('name'),
       wins: 0,
       losses: 0,

@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
       var that = this;
       tournament.set('state',2);
       tournament.save().then(function(tournament) {
-        that.transitionToRoute('tournaments.complete', tournament);
+        that.transitionToRoute('tournaments.complete.standings', tournament);
       });
     }
   }
