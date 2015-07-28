@@ -18,23 +18,12 @@ Router.map(function () {
       this.route('matches');
     });
     this.route("archive");
-
-    this.route('commplete', function() {
-      this.route('matches');
-    });
   });
   this.route('players', function(){
     this.route('new');
-  });
-
-  this.route('tournament', function() {
-    this.route('commplete', function() {
-      this.route('matches');
-    });
   });
 });
 
 Router.reopen({ location: "auto" });
 
 export default Router;
-

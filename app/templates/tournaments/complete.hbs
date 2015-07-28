@@ -2,11 +2,11 @@
     <h1>{{title}}</h1>
     <nav>
         <ul class="nav nav-tabs">
-          {{#link-to "tournaments.complete.matches" tagName="li" role="presentation"}}
-              <a href={{view.href}}>Matches</a>
+          {{#link-to "tournaments.complete.matches" tagName="li" href="false"}}
+            {{link-to 'Matches' 'tournaments.complete.matches' role='presentation'}}
           {{/link-to}}
-          {{#link-to "tournaments.complete.standings" tagName="li" role="presentation"}}
-              <a href={{view.href}}>Standings</a>
+          {{#link-to "tournaments.complete.standings" tagName="li" href="false"}}
+            {{link-to 'Standings' 'tournaments.complete.standings' role='presentation'}}
           {{/link-to}}
           <a href=""><span {{action 'openModal' 'tournaments/complete/settings'}} class="glyphicon glyphicon-cog pull-right"></span></a>
         </ul>
@@ -14,4 +14,3 @@
   {{outlet 'settings'}}
 </div>
 {{outlet}}
-
