@@ -9,7 +9,6 @@
                   {{#each model key="@guid" as |tournament|}}
                     {{#link-to 'tournaments.complete.standings' tournament class="list-group-item"}}
                         <span><strong>{{tournament.title}}</strong> <em>{{tournament.eventDate}}</em></span>
-                        <span {{action 'remove' tournament}} class="glyphicon glyphicon-trash pull-right"></span>
                     {{/link-to}}
                   {{/each}}
                 </div>
