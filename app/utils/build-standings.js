@@ -53,7 +53,7 @@ Standings.prototype = {
     for (var o in this.standings) {
       var row = this.standings[o];
       row.perc = (row.wins + row.ties/2) / (row.wins + row.losses + row.ties);
-      row.perc = isNaN(row.perc) ? '-' : row.perc.toFixed(3);
+      row.perc = isNaN(row.perc) ? '-' : row.perc.toFixed(2);
       row.sortPerc = row.perc === '-' ? 0.499 : row.perc;
       displayStandings.push(row);
     }
