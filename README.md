@@ -17,31 +17,25 @@ application would manage Olympic / World Cup style tournaments with a good user 
 
 ### The past
 
-This idea started as a [Python/Flask web application](https://github.com/ewilson/tournament).
-It was written because I wanted to learn how to write a web app in Python.
-This application was first used on 12/31/13 for some
-ping-pong round-robin tournaments. The original app was a bit lacking in the area of user experience,
+This idea started as a [Python/Flask web application](https://github.com/ewilson/tournament), which
+was first used on 12/31/13 for some ping-pong round-robin tournaments.
+The original app gave a rough user experience,
 but it successfully demonstrated that boys love tournaments and standings.
 
 Having a well-received but limited prototype, I decided to rewrite the application with an architecture that
-better fit my vision. In particular, I choose to build a Single Page App using ember.js.
+better fit my expanding vision. In particular, I choose to build a Single Page App using Ember.js.
 
 ### Technologies
 
-The entire stack.
+The front-end is a Bootstrap/Ember application that is deployed in an
+AWS S3 bucket. This Ember application manages all business logic, in
+addition to the user interface.
 
-- [AWS S3](http://aws.amazon.com/S3)
-- [Bootstrap](http://getbootstrap.com)
-- [Ember](http://emberjs.com)
-- [Django](https://www.djangoproject.com)
-- [Postgres](http://www.postgresql.org)
-- [Heroku](http://heroku.com)
+The back-end is a Django/Postgres RESTful API deployed in Heroku.
+The API is straightforward, handling persistence and serialization of data.
 
-Most of these choices don't change much. This is an Ember.js application, first and foremost.
-
-Both the client and server apps are deployed by Travis upon changes to master in GitHub. In both cases I have chosen
-a simple and affordable option that saves me the trouble of managing a production server, with S3
-for the Ember-CLI app, and Heroku for the Django/Postgres API.
+Deployment to production -- for both applications -- is automated by Travis-CI.
+Just merge to master, wait for tests to pass, and code is pushed to production.
 
 ### Local development setup
 
