@@ -8,6 +8,12 @@ export default Ember.Controller.extend({
       tournament.save().then(function (tournament) {
         that.transitionToRoute('tournaments.play.matches', tournament);
       });
+    },
+    remove: function(tournament) {
+      var that = this;
+      tournament.destroyRecord().then(function() {
+        that.transitionToRoute('tournaments');
+      });
     }
   }
 });
