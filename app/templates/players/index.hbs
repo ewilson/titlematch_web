@@ -2,6 +2,19 @@
     <h1>Players</h1>
   {{#link-to 'players.new' type="button" class="btn btn-primary"}}Add a player{{/link-to}}
     <div>&nbsp;</div>
+    {{#if notification}}
+      <div id="notification">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            {{notificationHeading}}
+          </div>
+          <div class="panel-body">
+            <p id="notification">{{notificationBody}}</p>
+            <button {{action "closeNotification"}} class="btn">Close</button>
+          </div>
+        </div>
+      </div>
+    {{/if}}
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-primary">
