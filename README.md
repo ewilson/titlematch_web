@@ -17,13 +17,10 @@ application would manage Olympic / World Cup style tournaments with a good user 
 
 ### The past
 
-This idea started as a [Python/Flask web application](https://github.com/ewilson/tournament), which
-was first used on 12/31/13 for some ping-pong round-robin tournaments.
-The original app gave a rough user experience,
-but it successfully demonstrated that boys love tournaments and standings.
-
-Having a well-received but limited prototype, I decided to rewrite the application with an architecture that
-better fit my expanding vision. In particular, I choose to build a Single Page App using Ember.js.
+This idea started as a [Python/Flask web application](https://github.com/ewilson/tournament),
+which was first used on 12/31/13 for some ping-pong round-robin tournaments.
+The original app was well-received despite a rough user experience, which
+motivated me to rewrite the application as a Single Page App using Ember.js.
 
 ### Technologies
 
