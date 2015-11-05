@@ -3,17 +3,16 @@
   {{#link-to 'players.new' type="button" class="btn btn-primary"}}Add a player{{/link-to}}
     <div>&nbsp;</div>
     {{#if notification}}
-      <div id="notification">
-        <div class="panel panel-danger">
-          <div class="panel-heading">
-            {{notificationHeading}}
-          </div>
-          <div class="panel-body">
-            <p id="notification">{{notificationBody}}</p>
-            <button {{action "closeNotification"}} class="btn">Close</button>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="notification">
+          <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            {{notificationHeading}}: {{notificationBody}}
           </div>
         </div>
       </div>
+    </div>
     {{/if}}
     <div class="row">
         <div class="col-md-6">
