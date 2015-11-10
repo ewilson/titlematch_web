@@ -23,7 +23,7 @@
                     </tr>
                     </thead>
                     <tbody id="standings">
-                    {{#each model.standings key="@guid" as |row|}}
+                    {{#each model.standings as |row|}}
                         <tr>
                             <td>{{row.name}}</td>
                             <td>{{row.wins}}</td>

@@ -6,7 +6,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading"></div>
                 <div class="panel-body list-group">
-                  {{#each model key="@guid" as |tournament|}}
+                  {{#each model as |tournament|}}
                     {{#link-to 'tournaments.complete.standings' tournament class="list-group-item"}}
                         <span><strong>{{tournament.title}}</strong> <em>{{tournament.eventDate}}</em></span>
                     {{/link-to}}

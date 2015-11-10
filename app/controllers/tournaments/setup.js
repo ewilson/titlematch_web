@@ -3,6 +3,7 @@ import Ember from 'ember';
 import roundRobin from 'titlematch-web/utils/round-robin';
 
 export default Ember.Controller.extend({
+  players: Ember.inject.controller('players'),
   actions: {
     start: function (tournament) {
       var that = this;
@@ -32,6 +33,5 @@ export default Ember.Controller.extend({
       tournament.save();
       player.save();
     }
-  },
-  needs: ['players']
+  }
 });
