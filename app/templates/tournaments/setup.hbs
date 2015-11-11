@@ -10,7 +10,7 @@
                     <h3 class="panel-title">Added players</h3>
                 </div>
                 <div class="panel-body added-players list-group">
-                    {{#each model.players key="@guid" as |player|}}
+                    {{#each model.players as |player|}}
                         <a class="list-group-item" href="#" {{action 'removePlayer' this player}}>
                           {{player.name}}
                         </a>
@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <ol>
-          {{#each controllers.players.model key="@guid" as |player|}}
+          {{#each players.model as |player|}}
               <li><a href="#" {{action "addPlayer" this player}}>{{player.name}}</a></li>
           {{/each}}
         </ol>
