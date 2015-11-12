@@ -32,6 +32,14 @@ export default Ember.Controller.extend({
       tournament.get('players').removeObject(player);
       tournament.save();
       player.save();
+    },
+    addNewPlayer: function(tournament, playerName) {
+      var newPlayer = this.store.createRecord('player');
+      newPlayer.set('name', playerName);
+      newPlayer.save().then(function() {
+        tournament.get('players').addObject(newPlayer);
+        tournament.save();
+      });
     }
   }
 });
