@@ -2,35 +2,55 @@
     <h1>{{title}} <small>Select players</small></h1>
 </div>
 
-<form>
-    <div class="row">
-        <div class="col-xs-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Added players</h3>
-                </div>
-                <div class="panel-body added-players list-group">
-                    {{#each model.players as |player|}}
-                        <a class="list-group-item" href="#" {{action 'removePlayer' this player}}>
-                          {{player.name}}
-                        </a>
-                    {{/each}}
-                </div>
+<div class="row">
+    <div class="col-xs-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Players in {{model.title}}</h3>
+            </div>
+            <div class="panel-body added-players list-group">
+                {{#each model.players as |player|}}
+                    <a class="list-group-item" href="#" {{action 'removePlayer' this player}}>
+                      {{player.name}}
+                    </a>
+                {{/each}}
             </div>
         </div>
-        <div class="col-xs-6">
-            <p>
-                <button {{action "start" this}} class="btn btn-primary">
-                    Begin Tournament
-                </button>
-            </p>
+    </div>
+    <div class="col-xs-6">
+        <p>
+            <button {{action "start" this}} class="btn btn-primary">
+                Begin Tournament
+            </button>
+        </p>
+    </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <form role="form" class="form-inline">
+        <div class="form-group">
+            {{input value=name type="text" class="form-control" placeholder="Enter name (new player)"}}
+        </div>
+        <button type="submit" {{action "addNewPlayer" this name}} class="btn btn-primary">Add</button>
+    </form>
+  </div>
+</div>
+<div class="form-group">
+    &nbsp;
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Other players</h3>
+            </div>
+            <div class="panel-body added-players list-group">
+                {{#each players.model as |player|}}
+                    <a class="list-group-item" href="#" {{action 'addPlayer' this player}}>
+                      {{player.name}}
+                    </a>
+                {{/each}}
+            </div>
         </div>
     </div>
-    <div class="row">
-        <ol>
-          {{#each players.model as |player|}}
-              <li><a href="#" {{action "addPlayer" this player}}>{{player.name}}</a></li>
-          {{/each}}
-        </ol>
-    </div>
-</form>
+</div>
