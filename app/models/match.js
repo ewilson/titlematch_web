@@ -7,6 +7,7 @@ export default DS.Model.extend({
   homeScore: DS.attr('number', {defaultValue: 0}),
   awayScore: DS.attr('number', {defaultValue: 0}),
   completed: DS.attr('boolean'),
+  pool: DS.attr('string', {defaultValue: ''}),
 
   homeWinner: function() {
     var homeScore = this.get('homeScore');

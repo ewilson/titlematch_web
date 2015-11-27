@@ -10,6 +10,7 @@ export default DS.Model.extend({
   }),
   state: DS.attr('number', {defaultValue: 0}),
   matches: DS.hasMany('match', {async: true, defaultValue: []}),
+  type: DS.attr('number', {defaultValue: 0}),
 
   completedMatches: function() {
     return this.get('matches').filterBy('completed', true);
@@ -39,4 +40,3 @@ export default DS.Model.extend({
   }.property('completedMatches')
 
 });
-
