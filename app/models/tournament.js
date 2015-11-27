@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
 import buildStandings from 'titlematch-web/utils/build-standings';
+import buildPools from 'titlematch-web/utils/build-pools';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
@@ -37,6 +38,15 @@ export default DS.Model.extend({
 
   notStarted: function() {
     return this.get('completedMatches.length') === 0;
-  }.property('completedMatches')
+  }.property('completedMatches'),
 
+  pools: function() {
+    var type = this.get('type');
+    var numPlayers = this.get('players.length');
+    if (type === 0) {
+      return [];
+    } else {
+      return buildPools(numPlayers);
+    }
+  }.property('type', 'players')
 });
