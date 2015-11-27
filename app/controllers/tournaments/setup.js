@@ -5,7 +5,7 @@ import roundRobin from 'titlematch-web/utils/round-robin';
 export default Ember.Controller.extend({
   players: Ember.inject.controller('players'),
   actions: {
-    start: function (tournament) {
+    start: function(tournament) {
       var that = this;
       tournament.set('state', 1);
       var players = tournament.get('players');
@@ -23,12 +23,12 @@ export default Ember.Controller.extend({
         that.transitionToRoute('tournaments.play.matches', tournament);
       });
     },
-    addPlayer: function (tournament, player) {
+    addPlayer: function(tournament, player) {
       tournament.get('players').addObject(player);
       tournament.save();
       player.save();
     },
-    removePlayer: function (tournament, player) {
+    removePlayer: function(tournament, player) {
       tournament.get('players').removeObject(player);
       tournament.save();
       player.save();
@@ -40,6 +40,11 @@ export default Ember.Controller.extend({
         tournament.get('players').addObject(newPlayer);
         tournament.save();
       });
+    },
+    setType: function(type) {
+      var tournament = this.get('model');
+      tournament.set('type', type);
+      tournament.save();
     }
   }
 });
