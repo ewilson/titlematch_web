@@ -7,12 +7,12 @@ test('can schedule four', function() {
 
   var result = roundRobin(competitors);
 
-  deepEqual(result[0],['alpha','delta']);
-  deepEqual(result[1],['bravo','charlie']);
-  deepEqual(result[2],['alpha','bravo']);
-  deepEqual(result[3],['charlie','delta']);
-  deepEqual(result[4],['alpha','charlie']);
-  deepEqual(result[5],['delta','bravo']);
+  deepEqual(result[0],{'home': 'alpha', 'away': 'delta'});
+  deepEqual(result[1],{'home': 'bravo', 'away': 'charlie'});
+  deepEqual(result[2],{'home': 'alpha', 'away': 'bravo'});
+  deepEqual(result[3],{'home': 'charlie', 'away': 'delta'});
+  deepEqual(result[4],{'home': 'alpha', 'away': 'charlie'});
+  deepEqual(result[5],{'home': 'delta', 'away': 'bravo'});
 });
 
 test('can schedule five', function() {
@@ -20,16 +20,16 @@ test('can schedule five', function() {
 
   var result = roundRobin(competitors);
 
-  deepEqual(result[0],['bravo','echo']);
-  deepEqual(result[1],['charlie','delta']);
-  deepEqual(result[2],['alpha','bravo']);
-  deepEqual(result[3],['delta','echo']);
-  deepEqual(result[4],['alpha','charlie']);
-  deepEqual(result[5],['delta','bravo']);
-  deepEqual(result[6],['alpha','delta']);
-  deepEqual(result[7],['echo','charlie']);
-  deepEqual(result[8],['alpha','echo']);
-  deepEqual(result[9],['bravo','charlie']);
+  deepEqual(result[0],{'home': 'bravo', 'away': 'echo'});
+  deepEqual(result[1],{'home': 'charlie', 'away': 'delta'});
+  deepEqual(result[2],{'home': 'alpha', 'away': 'bravo'});
+  deepEqual(result[3],{'home': 'delta', 'away': 'echo'});
+  deepEqual(result[4],{'home': 'alpha', 'away': 'charlie'});
+  deepEqual(result[5],{'home': 'delta', 'away': 'bravo'});
+  deepEqual(result[6],{'home': 'alpha', 'away': 'delta'});
+  deepEqual(result[7],{'home': 'echo', 'away': 'charlie'});
+  deepEqual(result[8],{'home': 'alpha', 'away': 'echo'});
+  deepEqual(result[9],{'home': 'bravo', 'away': 'charlie'});
 });
 
 test('can schedule six', function() {

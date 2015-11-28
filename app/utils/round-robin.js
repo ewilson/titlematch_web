@@ -18,8 +18,8 @@ export default function roundRobin(competitors) {
   for (var round = 1; round < spots; round++) {
     // a round schedules all players for one match except possible one with a BYE
     for (var idx = 0; idx < spots/2; idx++) {
-      var match = [competitors[idx], competitors[spots-idx-1]];
-      if (match.indexOf("BYE") === -1) {
+      var match = {'home': competitors[idx], 'away': competitors[spots-idx-1]};
+      if (match.home !== "BYE" && match.away !== "BYE") {
         schedule.push(match);
       }
     }
