@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 import roundRobin from 'titlematch-web/utils/round-robin';
 import buildPools from 'titlematch-web/utils/build-pools';
+import schedulePools from 'titlematch-web/utils/schedule-pools';
 
 export default Ember.Controller.extend({
   players: Ember.inject.controller('players'),
@@ -17,29 +18,17 @@ export default Ember.Controller.extend({
       if (type === 0) {
         matchups = roundRobin(playersArray);
       } else if (type === 1) {
-        var poolNames = buildPools(players.length);
-        var pools = {};
-        for (var j = 0; j < poolNames.length; j++) {
-          pools[poolNames[j]] = [];
-        }
-        console.log('P', pools);
-        for (var k = 0; k < playersArray.length; k++) {
-          var poolName = poolNames[k % poolNames.length];
-          console.log('PN', poolName);
-          pools[poolName].push(playersArray[k]);
-        }
-        for (var pn in pools) {
-          if (pools.hasOwnProperty(pn)) {
-            console.log('PPN', pools[pn]);
-            matchups.concat(roundRobin(pools[pn]));
-          }
-        }
+        var poolNames = buildPools(playersArray.length);
+        matchups = schedulePools(playersArray, poolNames);
       }
       for (var i = 0; i < matchups.length; i++) {
         var match = this.store.createRecord('match');
         match.set('tournament',tournament);
         match.set('homePlayer',matchups[i]['home']);
         match.set('awayPlayer',matchups[i]['away']);
+        if (type === 1) {
+          match.set('pool',matchups[i]['pool']);
+        }
         match.save();
         matches.addObject(match);
       }

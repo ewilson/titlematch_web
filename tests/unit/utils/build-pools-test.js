@@ -25,11 +25,10 @@ test('creates matchups for six with pools', function() {
 
   var result = schedulePools(competitors, pools);
 
-  console.log(result);
   deepEqual(result[0], {'home': 'charlie', 'away': 'echo', 'pool': 'A'});
-  deepEqual(result[1], {'home': 'delta', 'away': 'foxtrot', 'pool': 'B'});
-  deepEqual(result[2], {'home': 'alpha', 'away': 'charlie', 'pool': 'A'});
-  deepEqual(result[3], {'home': 'bravo', 'away': 'delta', 'pool': 'B'});
-  deepEqual(result[4], {'home': 'alpha', 'away': 'echo', 'pool': 'A'});
+  deepEqual(result[1], {'home': 'alpha', 'away': 'charlie', 'pool': 'A'});
+  deepEqual(result[2], {'home': 'alpha', 'away': 'echo', 'pool': 'A'});
+  deepEqual(result[3], {'home': 'delta', 'away': 'foxtrot', 'pool': 'B'});
+  deepEqual(result[4], {'home': 'bravo', 'away': 'delta', 'pool': 'B'});
   deepEqual(result[5], {'home': 'bravo', 'away': 'foxtrot', 'pool': 'B'});
 });

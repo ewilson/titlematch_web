@@ -1,3 +1,5 @@
+import roundRobin from 'titlematch-web/utils/round-robin';
+
 export default function schedulePools(competitors, poolNames) {
   var pools = {};
   for (var i = 0; i < poolNames.length; i++) {
@@ -7,8 +9,13 @@ export default function schedulePools(competitors, poolNames) {
     var poolName = poolNames[i % poolNames.length];
     pools[poolName].push(competitors[i]);
   }
-  console.log(pools['A']);
-  console.log(pools['B']);
-
-  return {};
+  var matches = [];
+  for (i = 0; i < poolNames.length; i++) {
+    var poolMatches = roundRobin(pools[poolNames[i]]);
+    for (var j = 0; j < poolMatches.length; j++) {
+      poolMatches[j]['pool'] = poolNames[i];
+    }
+    matches = matches.concat(poolMatches);
+  }
+  return matches;
 }
