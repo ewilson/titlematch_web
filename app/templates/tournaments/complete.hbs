@@ -13,4 +13,10 @@
     </nav>
   {{outlet 'settings'}}
 </div>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Congrats: {{model.winner.name}}</h1>
+    <p>Winner of the {{model.title}}</p>
+  </div>
+</div>
 {{outlet}}

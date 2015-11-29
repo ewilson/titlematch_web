@@ -1,52 +1,78 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
-import buildStandings from 'titlematch-web/utils/build-standings';
 import buildPools from 'titlematch-web/utils/build-pools';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
-  players: DS.hasMany('player', {async: true}),
+  entries: DS.hasMany('entry', {async: true, defaultValue: []}),
   eventDate: DS.attr('string', {
-    defaultValue: '2014-12-12'
+    defaultValue: new Date().toJSON().slice(0,10)
   }),
   state: DS.attr('number', {defaultValue: 0}),
   matches: DS.hasMany('match', {async: true, defaultValue: []}),
   type: DS.attr('number', {defaultValue: 0}),
-
-  completedMatches: function() {
+  completedMatches: Ember.computed('matches.@each.completed', function() {
     return this.get('matches').filterBy('completed', true);
-  }.property('matches.@each.completed'),
-
-  scheduledMatches: function() {
+  }),
+  scheduledMatches: Ember.computed('matches.@each.completed', function() {
     return this.get('matches').filterBy('completed', false);
-  }.property('matches.@each.completed'),
+  }),
 
-  standings: function() {
-    var players = this.get('players');
-    var matches = this.get('completedMatches');
-    return buildStandings(players, matches);
-  }.property('players', 'completedMatches'),
+  standings: Ember.computed('entries.@each.sortPerc', 'entries.@each.wins', 'entries.@each.pm', function() {
+    var entries = this.get('entries');
+    return entries.sortBy('sortPerc', 'wins', 'pm').reverse();
+  }),
 
-  winner: function() {
+  winner: Ember.computed('standings', function() {
     var standings = this.get('standings');
     return standings.slice(0,1)[0];
-  }.property('standings'),
+  }),
 
-  done: function() {
+  done: Ember.computed('scheduledMatches', function() {
     return this.get('scheduledMatches.length') === 0;
-  }.property('scheduledMatches'),
+  }),
 
-  notStarted: function() {
+  notStarted: Ember.computed('completedMatches', function() {
     return this.get('completedMatches.length') === 0;
-  }.property('completedMatches'),
+  }),
 
-  pools: function() {
+  pools: Ember.computed('type', 'entries', function() {
     var type = this.get('type');
-    var numPlayers = this.get('players.length');
-    if (type === 0) {
-      return [];
+    var numEntries = this.get('entries.length');
+    return buildPools(numEntries, type);
+  }),
+  hasPools: Ember.computed('pools', function() {
+    return this.get('pools').length > 0;
+  }),
+
+  completedPoolMatches: Ember.computed('completedMatches', 'activePool', function() {
+    var completedMatches = this.get('completedMatches');
+    var activePool = this.get('activePool');
+    if (typeof activePool === 'undefined' || activePool === '0') {
+      return completedMatches;
     } else {
-      return buildPools(numPlayers);
+      return completedMatches.filterBy('pool', activePool);
     }
-  }.property('type', 'players')
+  }),
+
+  scheduledPoolMatches: Ember.computed('scheduledMatches', 'activePool', function() {
+    var scheduledMatches = this.get('scheduledMatches');
+    var activePool = this.get('activePool');
+    if (typeof activePool === 'undefined' || activePool === '0') {
+      return scheduledMatches;
+    } else {
+      return scheduledMatches.filterBy('pool', activePool);
+    }
+  }),
+
+  poolStandings: Ember.computed('standings', 'activePool', function() {
+    var standings = this.get('standings');
+    var activePool = this.get('activePool');
+    if (typeof activePool === 'undefined' || activePool === '0') {
+      return standings;
+    } else {
+      return standings.filterBy('pool', activePool);
+    }
+  })
 });

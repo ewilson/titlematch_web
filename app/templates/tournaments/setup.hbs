@@ -8,10 +8,10 @@
       <div class="panel-heading">
         <h3 class="panel-title">Players in {{model.title}}</h3>
       </div>
-      <div class="panel-body added-players list-group">
-        {{#each model.players as |player|}}
-          <a class="list-group-item" href="#" {{action 'removePlayer' this player}}>
-            {{player.name}}
+      <div class="panel-body list-group">
+        {{#each model.entries as |entry|}}
+          <a class="list-group-item" href="#" {{action 'removePlayer' this entry}}>
+            {{entry.name}}
           </a>
         {{/each}}
       </div>
@@ -51,7 +51,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Other players</h3>
       </div>
-      <div class="panel-body added-players list-group">
+      <div class="panel-body list-group">
         {{#each players.model as |player|}}
           <a class="list-group-item" href="#" {{action 'addPlayer' this player}}>
             {{player.name}}

@@ -12,6 +12,22 @@
         </ul>
     </nav>
   {{outlet 'settings'}}
+  {{#if model.hasPools}}
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <form class="form">
+          <div class="form-group">
+            <select value={{pool}} class="form-control" onchange={{action "setFilter" value="target.value"}} id="type-select">
+              <option value="0">All Pools</option>
+              {{#each model.pools as |pool|}}
+                <option value="{{pool}}">Pool {{pool}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  {{/if}}
 </div>
 {{outlet}}
 <div class="container">
