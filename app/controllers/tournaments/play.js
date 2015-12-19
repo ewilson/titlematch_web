@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
   actions: {
     unstart: function(tournament) {
       var that = this;
@@ -25,6 +26,11 @@ export default Ember.Controller.extend({
       tournament.destroyRecord().then(function() {
         that.transitionToRoute('tournaments');
       });
+    },
+    setFilter: function(poolValue) {
+      var tournament = this.get('model');
+      tournament.set('activePool', poolValue);
+      this.set('pool', poolValue);
     }
   }
 });
