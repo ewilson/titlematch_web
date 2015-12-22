@@ -1,8 +1,6 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 
-import buildPools from 'titlematch-web/utils/build-pools';
-
 export default DS.Model.extend({
   title: DS.attr('string'),
   entries: DS.hasMany('entry', {async: true, defaultValue: []}),
@@ -37,13 +35,16 @@ export default DS.Model.extend({
     return this.get('completedMatches.length') === 0;
   }),
 
-  pools: Ember.computed('type', 'entries', function() {
-    var type = this.get('type');
-    var numEntries = this.get('entries.length');
-    return buildPools(numEntries, type);
+  pools: Ember.computed('entries.@each.pool', function() {
+    var poolArray = this.get('entries.@each.pool').toArray();
+    var uniqPools = {};
+    for (var i = 0; i < poolArray.length; i++) {
+      uniqPools[poolArray[i]] = 1;
+    }
+    return Object.keys(uniqPools);
   }),
   hasPools: Ember.computed('pools', function() {
-    return this.get('pools').length > 0;
+    return this.get('pools').length > 1;
   }),
 
   completedPoolMatches: Ember.computed('completedMatches', 'activePool', function() {

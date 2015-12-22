@@ -14,6 +14,11 @@ export default Ember.Controller.extend({
       tournament.destroyRecord().then(function() {
         that.transitionToRoute('tournaments');
       });
+    },
+    setFilter: function(poolValue) {
+      var tournament = this.get('model');
+      tournament.set('activePool', poolValue);
+      this.set('pool', poolValue);
     }
   }
 });
