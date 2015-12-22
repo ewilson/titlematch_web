@@ -41,7 +41,7 @@ export default DS.Model.extend({
     for (var i = 0; i < poolArray.length; i++) {
       uniqPools[poolArray[i]] = 1;
     }
-    return Object.keys(uniqPools);
+    return Object.keys(uniqPools).sort();
   }),
   hasPools: Ember.computed('pools', function() {
     return this.get('pools').length > 1;
