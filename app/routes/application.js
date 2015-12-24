@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import Menu from '../models/menu';
 
 export default Ember.Route.extend({
   model() {
-      var newTournaments  = this.store.query('tournament', {state: 0});
-      var activeTournaments  = this.store.query('tournament', {state: 1});
-      return {newTournaments: newTournaments, activeTournaments: activeTournaments};
+    var menu = Menu.create();
+    menu.set('tournaments',this.store.findAll('tournament'));
+    return menu;
   }
 });
