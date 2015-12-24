@@ -13,6 +13,7 @@ test('can schedule four', function() {
   deepEqual(result[3],{'home': 'charlie', 'away': 'delta'});
   deepEqual(result[4],{'home': 'alpha', 'away': 'charlie'});
   deepEqual(result[5],{'home': 'delta', 'away': 'bravo'});
+  deepEqual(competitors, ['alpha', 'bravo', 'charlie', 'delta']);
 });
 
 test('can schedule five', function() {
@@ -30,6 +31,7 @@ test('can schedule five', function() {
   deepEqual(result[7],{'home': 'echo', 'away': 'charlie'});
   deepEqual(result[8],{'home': 'alpha', 'away': 'echo'});
   deepEqual(result[9],{'home': 'bravo', 'away': 'charlie'});
+  deepEqual(competitors, ['alpha', 'bravo', 'charlie', 'delta', 'echo']);
 });
 
 test('can schedule six', function() {
