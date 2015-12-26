@@ -9,7 +9,9 @@
  *
  * This arrangement accomplishes a round-robin that maximizes simultaneous play.
  */
-export default function roundRobin(competitors) {
+export default function roundRobin(players) {
+  var competitors = players.slice(0);
+
   var schedule = [];
   if (competitors.length % 2 === 1) {
     competitors.push("BYE");
