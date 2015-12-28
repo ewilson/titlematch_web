@@ -5,29 +5,31 @@
                 <div class="panel-heading"></div>
                 <table class="table table-bordered table-hover">
                     <thead>
-                        <tr>
-                            <th class="col-sm-4 col-xs-9"></th>
-                            <th class="col-sm-1 col-xs-1">W</th>
-                            <th class="col-sm-1 col-xs-1">L</th>
-                            <th class="col-sm-1 col-xs-1">T</th>
-                            <th class="col-sm-2 hidden-xs">%</th>
-                            <th class="col-sm-1 hidden-xs">PF</th>
-                            <th class="col-sm-1 hidden-xs">PA</th>
-                            <th class="col-sm-1 hidden-xs">+/-</th>
-                        </tr>
+                      <tr>
+                        <th class="col-sm-4 col-xs-8"></th>
+                        <th class="col-sm-1 col-xs-1">W</th>
+                        <th class="col-sm-1 col-xs-1">L</th>
+                        <th class="col-sm-1 col-xs-1">T</th>
+                        <th class="col-sm-1 hidden-xs">%</th>
+                        <th class="col-sm-1 hidden-xs">PF</th>
+                        <th class="col-sm-1 hidden-xs">PA</th>
+                        <th class="col-sm-1 hidden-xs">+/-</th>
+                        <th class="col-sm-1 col-xs-1">P</th>
+                      </tr>
                     </thead>
                     <tbody id="standings">
                         {{#each model.poolStandings as |entry|}}
-                            <tr>
-                                <td class="col-sm-4 col-xs-9">{{entry.name}}</td>
-                                <td class="col-sm-1 col-xs-1">{{entry.wins}}</td>
-                                <td class="col-sm-1 col-xs-1">{{entry.losses}}</td>
-                                <td class="col-sm-1 col-xs-1">{{entry.ties}}</td>
-                                <td class="col-sm-2 hidden-xs">{{entry.dispPerc}}</td>
-                                <td class="col-sm-1 hidden-xs">{{entry.pf}}</td>
-                                <td class="col-sm-1 hidden-xs">{{entry.pa}}</td>
-                                <td class="col-sm-1 hidden-xs">{{entry.pm}}</td>
-                            </tr>
+                        <tr>
+                            <td class="col-sm-4 col-xs-8">{{entry.name}}</td>
+                            <td class="col-sm-1 col-xs-1">{{entry.wins}}</td>
+                            <td class="col-sm-1 col-xs-1">{{entry.losses}}</td>
+                            <td class="col-sm-1 col-xs-1">{{entry.ties}}</td>
+                            <td class="col-sm-1 hidden-xs">{{entry.dispPerc}}</td>
+                            <td class="col-sm-1 hidden-xs">{{entry.pf}}</td>
+                            <td class="col-sm-1 hidden-xs">{{entry.pa}}</td>
+                            <td class="col-sm-1 hidden-xs">{{entry.pm}}</td>
+                            <td class="col-sm-1 col-xs-1">{{entry.pool}}</td>
+                        </tr>
                         {{/each}}
                     </tbody>
                 </table>
