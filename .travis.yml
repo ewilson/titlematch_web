@@ -13,14 +13,14 @@ script:
 - npm test
 
 after_success:
-- ember build --environment=production
+- ember build --environment=staging
 
 deploy:
   provider: s3
   access_key_id: AKIAIKJ2Q7WB2FD327YA
   secret_access_key:
     secure: t+r4Y6dPbqJz/MhJzSXhchy0JBMeS1bOj1FZFq8Kr4fBt3P/J6PVYeWPgBnBIwEOs7BSDfpb0pvacMnjKH94KE4KSAdVdA5pC13VbnW/An1ad8ym1JSFFf8WDD2YYNGCZ3mAx9dqJGi1n8+RX7f2SFYNWssSM7R3JoAIb1292T0=
-  bucket: titlematch
+  bucket: titlematch-staging
   skip_cleanup: true
   acl: public_read
   local-dir: dist
