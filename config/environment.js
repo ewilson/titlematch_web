@@ -49,6 +49,12 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
+  if (environment === 'staging') {
+    ENV.APP.API_HOST = 'http://secure-badlands-8145.herokuapp.com/';
+    ENV.APP.API_NAMESPACE = '';
+    ENV.contentSecurityPolicy['connect-src'] = "http://secure-badlands-8145.herokuapp.com/";
+  }
+
   if (environment === 'production') {
     ENV.APP.API_HOST = 'http://secure-badlands-8145.herokuapp.com/';
     ENV.APP.API_NAMESPACE = '';
