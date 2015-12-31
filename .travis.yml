@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "0.12.7"
+- "0.12.7"
 sudo: false
 cache:
   directories:
@@ -13,28 +13,29 @@ script:
 - npm test
 
 after_success:
-  - ember build --environment=production
+- ember build --environment=production
+- ember build --environment=staging --output-path=dist-staging
 
 deploy:
-  - provider: s3
-    access_key_id: AKIAIKJ2Q7WB2FD327YA
-    secret_access_key:
-      secure: t+r4Y6dPbqJz/MhJzSXhchy0JBMeS1bOj1FZFq8Kr4fBt3P/J6PVYeWPgBnBIwEOs7BSDfpb0pvacMnjKH94KE4KSAdVdA5pC13VbnW/An1ad8ym1JSFFf8WDD2YYNGCZ3mAx9dqJGi1n8+RX7f2SFYNWssSM7R3JoAIb1292T0=
-    bucket: bracketfun.com
-    skip_cleanup: true
-    acl: public_read
-    local-dir: dist
-    region: us-east-1
-    on:
-      branch: master
-  - provider: s3
-    access_key_id: AKIAIKJ2Q7WB2FD327YA
-    secret_access_key:
-      secure: t+r4Y6dPbqJz/MhJzSXhchy0JBMeS1bOj1FZFq8Kr4fBt3P/J6PVYeWPgBnBIwEOs7BSDfpb0pvacMnjKH94KE4KSAdVdA5pC13VbnW/An1ad8ym1JSFFf8WDD2YYNGCZ3mAx9dqJGi1n8+RX7f2SFYNWssSM7R3JoAIb1292T0=
-    bucket: staging.bracketfun.com
-    skip_cleanup: true
-    acl: public_read
-    local-dir: dist
-    region: us-east-1
-    on:
-      branch: staging
+- provider: s3
+  access_key_id: AKIAIKJ2Q7WB2FD327YA
+  secret_access_key:
+    secure: t+r4Y6dPbqJz/MhJzSXhchy0JBMeS1bOj1FZFq8Kr4fBt3P/J6PVYeWPgBnBIwEOs7BSDfpb0pvacMnjKH94KE4KSAdVdA5pC13VbnW/An1ad8ym1JSFFf8WDD2YYNGCZ3mAx9dqJGi1n8+RX7f2SFYNWssSM7R3JoAIb1292T0=
+  bucket: bracketfun.com
+  skip_cleanup: true
+  acl: public_read
+  local-dir: dist
+  region: us-east-1
+  on:
+    branch: master
+- provider: s3
+  access_key_id: AKIAIKJ2Q7WB2FD327YA
+  secret_access_key:
+    secure: t+r4Y6dPbqJz/MhJzSXhchy0JBMeS1bOj1FZFq8Kr4fBt3P/J6PVYeWPgBnBIwEOs7BSDfpb0pvacMnjKH94KE4KSAdVdA5pC13VbnW/An1ad8ym1JSFFf8WDD2YYNGCZ3mAx9dqJGi1n8+RX7f2SFYNWssSM7R3JoAIb1292T0=
+  bucket: staging.bracketfun.com
+  skip_cleanup: true
+  acl: public_read
+  local-dir: dist-staging
+  region: us-east-1
+  on:
+    branch: staging
