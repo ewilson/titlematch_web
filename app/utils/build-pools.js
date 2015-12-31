@@ -3,6 +3,7 @@ export default function buildPools(numPlayers, type) {
     var pools = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
     var poolDivs = {
       6: 2,
+      7: 2,
       8: 2,
       9: 3,
       10: 2,
