@@ -50,15 +50,15 @@ module.exports = function(environment) {
   }
 
   if (environment === 'staging') {
-    ENV.APP.API_HOST = 'http://secure-badlands-8145.herokuapp.com/';
+    ENV.APP.API_HOST = 'http://staging-bracketfun-api.herokuapp.com/';
     ENV.APP.API_NAMESPACE = '';
-    ENV.contentSecurityPolicy['connect-src'] = "http://secure-badlands-8145.herokuapp.com/";
+    ENV.contentSecurityPolicy['connect-src'] = "http://staging-bracketfun-api.herokuapp.com/";
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST = 'http://secure-badlands-8145.herokuapp.com/';
+    ENV.APP.API_HOST = 'http://bracketfun-api.herokuapp.com/';
     ENV.APP.API_NAMESPACE = '';
-    ENV.contentSecurityPolicy['connect-src'] = "http://secure-badlands-8145.herokuapp.com/";
+    ENV.contentSecurityPolicy['connect-src'] = "http://bracketfun-api.herokuapp.com/";
   }
 
   return ENV;
