@@ -13,8 +13,8 @@ script:
 - npm test
 
 after_success:
-- ember build --environment=production
-- ember build --environment=staging --output-path=dist-staging
+- test $TRAVIS_BRANCH = "master" && ember build --environment=production
+- test $TRAVIS_BRANCH = "staging" && ember build --environment=staging
 
 deploy:
 - provider: s3
@@ -35,7 +35,7 @@ deploy:
   bucket: staging.bracketfun.com
   skip_cleanup: true
   acl: public_read
-  local-dir: dist-staging
+  local-dir: dist
   region: us-east-1
   on:
     branch: staging
