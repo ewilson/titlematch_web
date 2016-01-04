@@ -1,4 +1,4 @@
-import roundRobin from 'titlematch-web/utils/round-robin';
+import roundRobin from 'bracketfun-web/utils/round-robin';
 
 module('roundRobin');
 

@@ -1,4 +1,4 @@
-import roundRobin from 'titlematch-web/utils/round-robin';
+import roundRobin from 'bracketfun-web/utils/round-robin';
 
 export default function schedulePools(competitors, poolNames) {
   var pools = initPools(poolNames, competitors);
