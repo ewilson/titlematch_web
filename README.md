@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/ewilson/titlematch_web.svg?branch=travis)](https://travis-ci.org/ewilson/titlematch_web)
+[![Build Status](https://travis-ci.org/ewilson/bracketfun_web.svg?branch=travis)](https://travis-ci.org/ewilson/bracketfun_web)
 
 BracketFun Web App
 ==================
 
 This is an Ember app for scheduling and playing of tournaments. It requires the
-[BracketFun API](https://github.com/ewilson/titlematch_api)*. Currently it can divide
+[BracketFun API](https://github.com/ewilson/bracketfun_api)*. Currently it can divide
 players into pools and schedule a round-robin for each pool.  New and useful features will be added regularly ... except when it sits dormant for months.
 
 You can explore it at [bracketfun.com](http://bracketfun.com/).
@@ -38,10 +38,8 @@ deploy to production.
 
 ### Local development setup
 
-Local deployment requires running the [BracketFun API](https://github.com/ewilson/titlematch_api)
+Local deployment requires running the [BracketFun API](https://github.com/ewilson/bracketfun_api)
 locally, which requires Postgres.
 
 Other than that, BracketFun Web works like a typical ember/ember-cli app.
 
-* Note that the name "TitleMatch" is a legacy name that would be too much trouble to
-remove completely.

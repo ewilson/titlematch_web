@@ -1,10 +1,11 @@
 import Ember from 'ember';
 import config from './config/environment';
 
-var Router = Ember.Router.extend({
+const Router = Ember.Router.extend({
   location: config.locationType
 });
 
+export default Router;
 Router.map(function () {
   this.route('tournaments', function () {
     this.route('new');
@@ -25,5 +26,3 @@ Router.map(function () {
 });
 
 Router.reopen({ location: "auto" });
-
-export default Router;

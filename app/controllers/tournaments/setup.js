@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
-import assignPools from 'titlematch-web/utils/assign-pools';
-import schedulePools from 'titlematch-web/utils/schedule-pools';
+import assignPools from 'bracketfun-web/utils/assign-pools';
+import schedulePools from 'bracketfun-web/utils/schedule-pools';
 
 export default Ember.Controller.extend({
   players: Ember.inject.controller('players'),

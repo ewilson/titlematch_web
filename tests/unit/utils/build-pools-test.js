@@ -1,5 +1,5 @@
-import buildPools from 'titlematch-web/utils/build-pools';
-import schedulePools from 'titlematch-web/utils/schedule-pools';
+import buildPools from 'bracketfun-web/utils/build-pools';
+import schedulePools from 'bracketfun-web/utils/schedule-pools';
 
 module('buildPools');
 

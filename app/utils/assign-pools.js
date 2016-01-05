@@ -1,4 +1,4 @@
-import buildPools from 'titlematch-web/utils/build-pools';
+import buildPools from 'bracketfun-web/utils/build-pools';
 
 export default function assignPools(playersArray, type) {
   var pools = buildPools(playersArray.length, type);

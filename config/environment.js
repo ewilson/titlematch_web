@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'titlematch-web',
+    modulePrefix: 'bracketfun-web',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
